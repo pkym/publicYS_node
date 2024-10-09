@@ -130,7 +130,7 @@ section.right .content {
   display: flex;
   flex-direction: column;
   width: calc(100% - 32px);
-  min-height: 800px;
+  /* min-height: 800px; */
   margin: 0 16px;
   padding: 20px 20px 140px;
   z-index: 2;
@@ -148,7 +148,6 @@ section.right .content h4:first-of-type {
 
 section.right .content .icon-box {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   margin: 0 -14px;
 }
@@ -157,7 +156,8 @@ section.right .icon-box button {
   flex-direction: column;
   flex-grow: 0;
   align-items: center;
-  margin: 0px 24px 16px 14px;
+  width: 20%;
+  margin-bottom: 16px;
   cursor: pointer;
   transition: .3s;
 }
@@ -291,12 +291,47 @@ section.right .content .icon-box span {
 }
 
 /******************** 반응형 ********************/
+@media (max-width: 1020px) {
+  .wrapper {
+    width: 100%;
+  }
+  section.left {
+    width: 40%;
+    padding: 0 50px 0 30px;
+  }
+  section.left .title {
+    width: 65%;
+  }
+  section.right {
+    width: 60%;
+  }
+  .dockbar {
+    width: 60%;
+    right: 0;
+  }
+}
+
 @media (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+  }
+  .dockbar {
+    width: 100%;
+  }
   section.left {
     display: none;
   }
   section.right {
-    width: 100% !important;
-    margin-right: 0 !important;
+    width: 100%;
+    margin-right: 0;
+  }
+  section.right .content .icon-box {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 450px) {
+  section.right .icon-box button {
+    width: 25%;
   }
 }
