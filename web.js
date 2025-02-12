@@ -42,10 +42,13 @@ app.get("*", (req, res) => {
 
 io.on("connection", (socket) => {
   console.log("a user connected");
+
+  // 메시지 수신
   socket.on("chat message", (msg) => {
-    console.log("message: " + msg);
-    io.emit("chat message", msg);
+    const date = new Date().toISOString();
+    io.emit("chat message", { userId: socket.id, message: msg, date });
   });
+
   socket.on("disconnect", () => {
     console.log("user disconnected");
   });

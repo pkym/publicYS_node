@@ -3,7 +3,8 @@
 /******************** 공통 ********************/
 body,
 button,
-a {
+a,
+input {
   font-family: "Pretendard", sans-serif;
 }
 h2 {
@@ -132,6 +133,10 @@ h2 {
   margin-left: 4px;
 }
 
+.form-selects {
+  display: flex;
+}
+
 .form-options {
   display: flex;
 }
@@ -207,9 +212,8 @@ section.right .content {
   display: flex;
   flex-direction: column;
   width: calc(100% - 32px);
-  /* min-height: 800px; */
-  margin: 0 16px;
-  padding: 20px 20px 140px;
+  margin: 0 16px 110px; /* gnb 높이(110)만큼 margin bottom 추가 */
+  padding: 20px;
   z-index: 2;
   border-radius: 16px;
   background-color: #ffffff;
@@ -398,6 +402,72 @@ section.right .content .icon-box span {
 }
 .safe-text-ul li:last-child {
   border: none;
+}
+
+/******************** 실시간 대화 ********************/
+.liveChat-wrap {
+  height: calc(100vh - 110px - 240px);
+  overflow: auto;
+}
+
+.chatWrap {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 16px;
+}
+
+.chatBalloon {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 20px;
+}
+
+.myChat {
+  margin-left: 8px;
+  background: #d65317;
+  color: #fff;
+}
+
+.yourChat {
+  margin-right: 8px;
+  background: #dedede;
+  color: #000;
+}
+
+.date {
+  font-size: 12px;
+  color: #aaa;
+  letter-spacing: -0.5px;
+  flex-shrink: 0;
+}
+.myDate {
+  margin-left: auto;
+}
+.yourDate {
+  margin-right: auto;
+}
+
+.chatInputWrap {
+  position: relative;
+  margin-top: auto;
+}
+
+.chatInput {
+  width: 100%;
+  height: 48px;
+  border-radius: 5px;
+  padding: 0 68px 0 16px;
+  border: 1px solid #e0e5f6;
+}
+
+.sendChatBtn {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  padding: 10px 14px;
+  background: #dedede;
+  border-radius: 4px;
 }
 
 /******************** 반응형 ********************/
