@@ -360,6 +360,7 @@ section.right .content .icon-box span {
   color: #0682fe;
 }
 .text-item-content .sm {
+  position: relative;
   margin-top: 8px;
   color: #c4c4c4;
   font-size: 14px;

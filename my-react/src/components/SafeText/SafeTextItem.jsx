@@ -19,14 +19,14 @@ export default function SafeTextItem({ props }) {
         </div>
         <div className="text-item-content">
           <p>{props.MSG_CN}</p>
-          <p className="sm">
+          <div className="sm">
             수신지역:
             {rcpRegions.length > 3 ? (
               <DropDownList props={Object.values(rcpRegions)} />
             ) : (
               <span className="txt">{props.RCPTN_RGN_NM}</span>
             )}
-          </p>
+          </div>
         </div>
       </li>
     </>

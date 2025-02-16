@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DropDownItem from "./DropDownItem";
 import "../../styles/dropdown.css";
 
@@ -12,8 +12,8 @@ export default function DropDownList({ props }) {
   return (
     <div className={`dropdown ${open ? "on" : ""}`}>
       <ul className="dropdown-ul" onClick={() => dropdownHandler()}>
-        {props.map((value, index) => (
-          <DropDownItem key={index} item={value} />
+        {props.map((item, idx) => (
+          <DropDownItem key={idx} item={item} />
         ))}
       </ul>
       <button className="dropdown-btn" onClick={() => dropdownHandler()}>
