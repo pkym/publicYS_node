@@ -6,14 +6,27 @@ const socket = io("http://localhost:8001", {
   transports: ["websocket", "polling"],
 });
 
+// Debounce 함수
+function debounce(func, wait) {
+  let timeout;
+  return function (...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
 export default function LiveChatPage() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
-  const sendMessage = () => {
+  const sendMessage = debounce(() => {
     socket.emit("chat message", input);
     setInput("");
-  };
+  }, 100);
 
   const activeEnter = (e) => {
     if (e.key === "Enter") {
@@ -57,6 +70,7 @@ export default function LiveChatPage() {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => activeEnter(e)}
           placeholder="메시지 입력 후 엔터를 눌러주세요."
+          autoComplete="off"
         />
         <button className="sendChatBtn" onClick={sendMessage}>
           전송
