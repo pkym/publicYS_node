@@ -50,11 +50,13 @@ export default function LiveChatPage() {
           <div className="chatWrap" key={idx}>
             {data.userId === socket.id ? (
               <>
+                <span className="nickname">{data.nickname}</span>
                 <span className="date myDate">{formatDate(data.date)}</span>
                 <div className="myChat chatBalloon">{data.message}</div>
               </>
             ) : (
               <>
+                <span className="nickname">{data.nickname}</span>
                 <div className="yourChat chatBalloon">{data.message}</div>
                 <span className="date yourDate">{formatDate(data.date)}</span>
               </>
