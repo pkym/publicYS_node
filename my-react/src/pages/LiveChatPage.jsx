@@ -47,20 +47,17 @@ export default function LiveChatPage() {
       <h2>실시간 대화</h2>
       <div className="liveChat-wrap">
         {messages.map((data, idx) => (
-          <div className="chatWrap" key={idx}>
-            {data.userId === socket.id ? (
-              <>
-                <span className="nickname">{data.nickname}</span>
-                <span className="date myDate">{formatDate(data.date)}</span>
-                <div className="myChat chatBalloon">{data.message}</div>
-              </>
-            ) : (
-              <>
-                <span className="nickname">{data.nickname}</span>
-                <div className="yourChat chatBalloon">{data.message}</div>
-                <span className="date yourDate">{formatDate(data.date)}</span>
-              </>
-            )}
+          <div
+            className={`chatWrap ${
+              data.userId === socket.id ? "myChat" : "otherChat"
+            }`}
+            key={idx}
+          >
+            <span className="nickname">{data.nickname}</span>
+            <div className="chat">
+              <div className="chatBalloon">{data.message}</div>
+              <span className="date">{formatDate(data.date)}</span>
+            </div>
           </div>
         ))}
       </div>

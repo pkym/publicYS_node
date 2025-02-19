@@ -413,39 +413,55 @@ section.right .content .icon-box span {
 
 .chatWrap {
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
   margin-bottom: 16px;
-}
 
-.chatBalloon {
-  display: inline-block;
-  padding: 10px 16px;
-  border-radius: 20px;
-}
+  &.myChat {
+    text-align: right;
+  }
 
-.myChat {
-  margin-left: 8px;
-  background: #d65317;
-  color: #fff;
-}
+  .chat {
+    display: flex;
+    align-items: flex-end;
+  }
+  &.myChat .chat {
+    justify-content: flex-end;
+  }
 
-.yourChat {
-  margin-right: 8px;
-  background: #dedede;
-  color: #000;
-}
+  &.myChat .chatBalloon {
+    margin-left: 8px;
+    background: #d65317;
+    color: #fff;
+    order: 2;
+  }
 
-.date {
-  font-size: 12px;
-  color: #aaa;
-  letter-spacing: -0.5px;
-  flex-shrink: 0;
-}
-.myDate {
-  margin-left: auto;
-}
-.yourDate {
-  margin-right: auto;
+  &.otherChat .chatBalloon {
+    margin-right: 8px;
+    background: #dedede;
+    color: #000;
+    order: 1;
+  }
+
+  .chatBalloon {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 20px;
+  }
+
+  .date {
+    display: block;
+    font-size: 12px;
+    color: #aaa;
+    letter-spacing: -0.5px;
+  }
+
+  &.myChat .date {
+    order: 1;
+  }
+
+  &.otherChat .date {
+    order: 2;
+  }
 }
 
 .chatInputWrap {

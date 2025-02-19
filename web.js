@@ -42,7 +42,7 @@ app.get("*", (req, res) => {
 
 io.on("connection", (socket) => {
   console.log("a user connected");
-  const randomNickname = generateRandomKoreanName();
+  const randomNickname = generateRandomNickname();
 
   // 메시지 수신
   socket.on("chat message", (msg) => {
@@ -64,42 +64,16 @@ server.listen(PORT, () => {
   console.log(`server started on PORT ${PORT}`);
 });
 
+// 랜덤 닉네임 생성
 function getRandomElement(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-function generateRandomKoreanName() {
-  const consonants = [
-    "귀여운",
-    "배고픈",
-    "방황하는",
-    "행복한",
-    "슬픈",
-    "지친",
-    "용감한",
-    "웃는",
-    "깜찍한",
-    "멋진",
-  ];
-  const vowels = [
-    "도라지",
-    "강아지",
-    "베이글",
-    "고양이",
-    "물고기",
-    "토끼",
-    "햄버거",
-    "치킨",
-    "피자",
-    "나무",
-    "별",
-    "산",
-    "바다",
-  ];
+function generateRandomNickname() {
+  const firstName = ["안전", "행복", "건강"];
+  const randomLastName = () => Math.floor(Math.random() * 999).toString();
+  const randomFirstName = getRandomElement(firstName);
 
-  const randomConsonant = getRandomElement(consonants);
-  const randomVowel = getRandomElement(vowels);
-
-  return randomConsonant + randomVowel;
+  return randomFirstName + randomLastName();
 }
 // web.js
