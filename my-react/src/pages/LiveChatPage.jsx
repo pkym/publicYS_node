@@ -24,6 +24,7 @@ export default function LiveChatPage() {
   const [input, setInput] = useState("");
 
   const sendMessage = debounce(() => {
+    if (input.length === 0) return;
     socket.emit("chat message", input);
     setInput("");
   }, 100);

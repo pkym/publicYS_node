@@ -428,6 +428,11 @@ section.right .content .icon-box span {
     justify-content: flex-end;
   }
 
+  .nickname {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
   &.myChat .chatBalloon {
     margin-left: 8px;
     background: #d65317;
