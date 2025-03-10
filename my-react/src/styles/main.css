@@ -3,8 +3,19 @@
 /******************** 공통 ********************/
 body,
 button,
-a {
+a,
+input {
   font-family: "Pretendard", sans-serif;
+}
+h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+#root {
+  height: 100vh;
+  overflow: hidden;
 }
 
 .background {
@@ -54,7 +65,83 @@ a {
   margin-left: 4px;
 }
 
-/* 왼쪽 섹션 */
+.tip {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+
+/* button */
+.btn-search {
+  padding: 8px 14px;
+  background: #d64317;
+  color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+.form-wrap .btn-search {
+  width: 100%;
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+/* tab */
+.tab-btns {
+  display: block;
+  margin-bottom: 20px;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+.tab-btns button {
+  padding: 6px 14px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #d64317;
+  background: #fff;
+  border: 2px solid #d64317;
+  border-radius: 50px;
+}
+.tab-btns button:hover,
+.tab-btns button.active {
+  background: #d64317;
+  color: #fff;
+}
+.tab-btns button + button {
+  margin-left: 8px;
+}
+
+/* form */
+.form-wrap {
+  margin-bottom: 20px;
+}
+
+.form-control,
+.form-select {
+  flex-grow: 1;
+  width: 30%;
+  padding: 6px 4px;
+  font-size: 14px;
+  border: 1px solid #d64317;
+  border-radius: 6px;
+  color: #d64317;
+}
+
+.form-select + .form-select,
+.form-select + .form-control,
+.form-control + .form-select,
+.form-control + .form-control {
+  margin-left: 4px;
+}
+
+.form-selects {
+  display: flex;
+}
+
+.form-options {
+  display: flex;
+}
+
+/******************** 왼쪽 섹션 ********************/
 section.left {
   display: flex;
   flex-direction: column;
@@ -83,11 +170,6 @@ section.left h1 span {
   color: #d64317;
 }
 
-section.left div ul {
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px;
-}
 section.left .info-ul li {
   display: flex;
   align-items: flex-start;
@@ -111,7 +193,7 @@ section.left .info-ul li p {
   line-height: 1.3;
 }
 
-/* 오른쪽 섹션 */
+/******************** 오른쪽 섹션 ********************/
 section.right {
   position: relative;
   width: 630px;
@@ -130,9 +212,8 @@ section.right .content {
   display: flex;
   flex-direction: column;
   width: calc(100% - 32px);
-  /* min-height: 800px; */
-  margin: 0 16px;
-  padding: 20px 20px 140px;
+  margin: 0 16px 110px; /* gnb 높이(110)만큼 margin bottom 추가 */
+  padding: 20px;
   z-index: 2;
   border-radius: 16px;
   background-color: #ffffff;
@@ -159,7 +240,7 @@ section.right .icon-box button {
   width: 20%;
   margin-bottom: 16px;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
 }
 section.right .icon-box button:hover {
   transform: translateY(-5px);
@@ -173,8 +254,8 @@ section.right .icon-box .ico-wrap {
   margin-bottom: 10px;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0,0,0,.08);
-  transition: .3s;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
 }
 section.right .icon-box button:hover .ico-wrap {
   background: #d65317;
@@ -202,20 +283,20 @@ section.right .content .icon-box span {
   padding: 30px 20px;
   background: #fff;
   border-radius: 24px 24px 0 0;
-  box-shadow: 0 -4px 15px rgba(0,0,0,.08);
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.08);
 }
-.dockbar button {
+.dockbar a {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-size: 14px;
+  color: inherit;
+  text-decoration: none;
 }
-.dockbar button img {
+.dockbar a img {
   width: 28px;
   margin-bottom: 8px;
-}
-.dockbar button.active img {
-  color: #d65317;
 }
 
 /******************** 메인 ********************/
@@ -223,7 +304,7 @@ section.right .content .icon-box span {
   position: relative;
   padding: 20px 16px;
   background: #fff;
-  box-shadow: 0 4px 15px rgba(0,0,0,.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   border-radius: 10px;
   overflow: hidden;
 }
@@ -235,6 +316,7 @@ section.right .content .icon-box span {
   margin-top: 16px;
 }
 .content .box li:last-of-type {
+  padding-bottom: 44px;
   border: none;
 }
 .content .box .btn-more {
@@ -246,8 +328,13 @@ section.right .content .icon-box span {
   text-align: center;
   color: #d65317;
   font-size: 16px;
-  background: rgb(255,255,255);
-  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 60%, rgba(255,255,255,0) 100%);
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.8) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
 /* 최근 재난 문자 */
@@ -270,24 +357,139 @@ section.right .content .icon-box span {
   line-height: 1.3;
 }
 .text-item-content a {
-  color: #0682FE;
+  color: #0682fe;
+}
+.text-item-content .sm {
+  position: relative;
+  margin-top: 8px;
+  color: #c4c4c4;
+  font-size: 14px;
 }
 
 /* 긴급 대피소 */
-.emergency-shelter-ul .list-header {
+.emergency-shelter-wrap li {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #c4c4c4;
+}
+.emergency-shelter-wrap li:last-child {
+  border: 0;
+}
+.emergency-shelter-wrap li + li {
+  margin-top: 16px;
+}
+.emergency-shelter-wrap .list-header {
   margin-bottom: 12px;
 }
-.emergency-shelter-ul .title {
+.emergency-shelter-wrap .title {
   margin-bottom: 8px;
   font-size: 20px;
 }
-.emergency-shelter-ul .desc {
+.emergency-shelter-wrap .desc {
   font-size: 14px;
 }
-.emergency-shelter-ul .tel {
+.emergency-shelter-wrap .tel {
   margin-top: 8px;
   font-size: 13px;
   color: #aaa;
+}
+
+/******************** 재난문자 ********************/
+.safe-text-ul li {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #c4c4c4;
+}
+.safe-text-ul li + li {
+  margin-top: 20px;
+}
+.safe-text-ul li:last-child {
+  border: none;
+}
+
+/******************** 실시간 대화 ********************/
+.liveChat-wrap {
+  height: calc(100vh - 110px - 240px);
+  overflow: auto;
+}
+
+.chatWrap {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+
+  &.myChat {
+    text-align: right;
+  }
+
+  .chat {
+    display: flex;
+    align-items: flex-end;
+  }
+  &.myChat .chat {
+    justify-content: flex-end;
+  }
+
+  .nickname {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  &.myChat .chatBalloon {
+    margin-left: 8px;
+    background: #d65317;
+    color: #fff;
+    order: 2;
+  }
+
+  &.otherChat .chatBalloon {
+    margin-right: 8px;
+    background: #dedede;
+    color: #000;
+    order: 1;
+  }
+
+  .chatBalloon {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 20px;
+  }
+
+  .date {
+    display: block;
+    font-size: 12px;
+    color: #aaa;
+    letter-spacing: -0.5px;
+  }
+
+  &.myChat .date {
+    order: 1;
+  }
+
+  &.otherChat .date {
+    order: 2;
+  }
+}
+
+.chatInputWrap {
+  position: relative;
+  margin-top: auto;
+}
+
+.chatInput {
+  width: 100%;
+  height: 48px;
+  border-radius: 5px;
+  padding: 0 68px 0 16px;
+  border: 1px solid #e0e5f6;
+}
+
+.sendChatBtn {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  padding: 10px 14px;
+  background: #dedede;
+  border-radius: 4px;
 }
 
 /******************** 반응형 ********************/
