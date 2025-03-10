@@ -155,3 +155,6 @@ button {
   padding: 0;
   cursor: pointer;
 }
+a {
+  text-decoration: none;
+}

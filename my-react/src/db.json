@@ -1,0 +1,62 @@
+[
+  {
+      "id": 1,
+      "title": "지진",
+      "icoUrl": "../assets/icon/earthquake.png",
+      "imgUrl": "../assets/img/img_escape_earthquake.png"
+  },
+  {
+      "id": 2,
+      "title": "홍수",
+      "icoUrl": "../assets/icon/flooded.png",
+      "imgUrl": "../assets/img/img_escape_th.jpg"
+  },
+  {
+      "id": 3,
+      "title": "해일",
+      "icoUrl": "../assets/icon/heil.png",
+      "imgUrl": "../assets/img/img_escape_th.jpg"
+  },
+  {
+      "id": 4,
+      "title": "태풍",
+      "icoUrl": "../assets/icon/typoon.png",
+      "imgUrl": "../assets/img/img_escape_th.jpg"
+  },
+  {
+      "id": 5,
+      "title": "화재",
+      "icoUrl": "../assets/icon/burning.png",
+      "imgUrl": "../assets/img/img_escape_th.jpg"
+  },
+  {
+      "id": 6,
+      "title": "산사태",
+      "icoUrl": "../assets/icon/avalanche.png",
+      "imgUrl": "../assets/img/img_escape_th.jpg"
+  },
+  {
+      "id": 7,
+      "title": "폭발",
+      "icoUrl": "../assets/icon/explosion.png",
+      "imgUrl": "../assets/img/img_escape_th.jpg"
+  },
+  {
+      "id": 8,
+      "title": "대설",
+      "icoUrl": "../assets/icon/snowy.png",
+      "imgUrl": "../assets/img/img_escape_th.jpg"
+  },
+  {
+      "id": 9,
+      "title": "호우",
+      "icoUrl": "../assets/icon/hou.png",
+      "imgUrl": "../assets/img/img_escape_th.jpg"
+  },
+  {
+      "id": 10,
+      "title": "붕괴",
+      "icoUrl": "../assets/icon/collapse.png",
+      "imgUrl": "../assets/img/img_escape_th.jpg"
+  }
+]

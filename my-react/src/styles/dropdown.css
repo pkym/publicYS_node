@@ -1,0 +1,40 @@
+.dropdown {
+  position: absolute;
+  top: 0;
+  left: 50px;
+  z-index: 9;
+}
+
+.dropdown-ul {
+  display: inline-block;
+  height: 20px;
+  margin-left: 4px;
+  vertical-align: top;
+  overflow-y: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.dropdown-ul > li {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.dropdown-ul > li + li {
+  margin-top: 8px;
+}
+
+.dropdown.on .dropdown-ul {
+  height: 100px;
+  margin-left: 8px;
+  padding: 10px 12px;
+  vertical-align: top;
+  overflow-y: scroll;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.dropdown-btn {
+  padding-left: 4px;
+  color: #c4c4c4;
+}
