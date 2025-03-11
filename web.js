@@ -34,6 +34,20 @@ app.use(
   })
 );
 
+app.use(
+  "/shelter",
+  (req, res, next) => {
+    next();
+  },
+  createProxyMiddleware({
+    target: "https://www.safetydata.go.kr",
+    changeOrigin: true,
+    pathRewrite: {
+      "^/shelter": "",
+    },
+  })
+);
+
 app.use(express.static(path.join(__dirname, "my-react/build")));
 
 app.get("*", (req, res) => {

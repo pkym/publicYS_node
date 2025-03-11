@@ -1,6 +1,6 @@
-const { createProxyMiddleware } = require("http-proxy-middleware");
+//const { createProxyMiddleware } = require("http-proxy-middleware");
 
-module.exports = function (app) {
+/*module.exports = function (app) {
   // 재난문자 api
   app.use(
     "/safeText", //proxy가 필요한 path parameter
@@ -24,4 +24,4 @@ module.exports = function (app) {
       },
     })
   );
-};
+};*/
